@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Library Project</title>
+
+    <style>
+* {
+    box-sizing: border-box;
+}
+       body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: linear-gradient(135deg, #f7f1e3, #e8dcc3);
+    color: #5a4632;
+    min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: #3b2f2f;
+    color: white;
+    gap: 20px;
+}
+
+.logo {
+    width: 90px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+header h3 {
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+/* SEARCH */
+#searchInput {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    width: 200px;
+}
+
+/* ===== MAIN ===== */
+main {
+    padding: 30px;
+}
+
+/* ===== BUTTONS (GLOBAL) ===== */
+button {
+    background: #8b6f47;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    transition: 0.2s ease;
+    font-family: inherit;
+}
+
+button:hover {
+    background: #6f5638;
+    transform: translateY(-2px);
+}
+
+/* ===== INPUT POPUP ===== */
+.inputField {
+    position: absolute;
+    top: 110px;
+    left: 30px;
+
+    background: rgba(255, 255, 255, 0.95);
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 1px solid rgba(139, 111, 71, 0.3);
+
+    width: 260px;
+
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+
+    z-index: 10;
+}
+
+.inputField.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* INPUTS */
+.inputField input {
+    width: 100%;
+    margin: 6px 0 10px 0;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #c8b79b;
+    background: #fffaf3;
+    font-family: inherit;
+}
+
+/* SUBMIT BUTTON */
+.inputField button {
+    width: 100%;
+}
+
+/* ===== BOOK GRID ===== */
+#bookList {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+/* CARD */
+.bookCard {
+    background: #fffaf3;
+    border: 1px solid #d8c7a3;
+    border-radius: 12px;
+    padding: 14px;
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    transition: 0.2s ease;
+
+    position: relative;
+    padding-top: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bookCard:hover {
+    transform: translateY(-4px);
+}
+
+/* TEXT */
+.bookTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.bookInfo {
+    font-size: 14px;
+    color: #5a4632;
+    margin-bottom: 4px;
+}
+
+/* BADGE */
+.readBadge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    background: #8b6f47;
+    color: white;
+}
+
+/* BUTTON SPACING INSIDE CARD */
+.bookCard button {
+    width: auto;
+    margin: 6px 6px 0 0;
+}
+
+/* REMOVE WRAPPER FIX */
+.removeButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.buttonRow {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.buttonRow button {
+    flex: 1;
+    margin: 0;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Photos/Logo.png">
+        </div>
+        <input type = "text" id ="searchInput" placeholder="Search Books...">
+        <h3>My Virtual Library</h3>
+    </header>
+
+    <main>
+        <button id="toggleBtn">Add Book</button>
+
+        <div id="inputField" class="inputField">
+            Title:
+            <input type="text" id="titleInput" placeholder="Title">
+
+            Author:
+            <input type="text" id="authorInput" placeholder="Author">
+
+            Pages:
+            <input type="number" id="pagesInput" placeholder="Pages">
+
+            <label>
+                Read:
+                <input type="checkbox" id="checkboxInput">
+            </label>
+
+            <button id="submitBtn" type="button">Submit</button>
+        </div>
+
+        <div id="bookList"></div>
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
