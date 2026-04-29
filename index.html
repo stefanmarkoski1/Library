@@ -197,11 +197,76 @@ button:hover {
     gap: 8px;
     margin-top: 10px;
     flex-wrap: wrap;
+    margin-top: auto;
 }
 
 .buttonRow button {
     flex: 1;
     margin: 0;
+}
+
+@media (max-width: 600px) {
+
+    /* HEADER STACKS */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px 16px;
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+
+    /* MAIN PADDING SMALLER */
+    main {
+        padding: 16px;
+    }
+
+    /* ADD BUTTON FULL WIDTH */
+    #toggleBtn {
+        width: 100%;
+    }
+
+    /* INPUT POPUP → TURN INTO CENTER MODAL */
+    .inputField {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .inputField.show {
+        transform: translate(-50%, -50%);
+    }
+
+    /* GRID → SINGLE COLUMN */
+    #bookList {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 60px;
+    }
+
+    /* BUTTONS STACK NICELY */
+    .buttonRow {
+        flex-direction: column;
+    }
+
+    .buttonRow button {
+        width: 100%;
+    }
+
+    /* TEXT SCALE DOWN */
+    .bookTitle {
+        font-size: 16px;
+    }
+
+    .bookInfo {
+        font-size: 13px;
+    }
 }
 
 
